@@ -22,3 +22,8 @@ class Bq:
     def __init__(self , store_id , timezone_str):
         self.store_id = store_id
         self.timezone_str = timezone_str
+    def res(self):
+        data = {}
+        data['store_id'] = self.store_id
+        data['timezone_str'] = self.timezone_str
+        return data
