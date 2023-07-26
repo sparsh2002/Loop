@@ -7,6 +7,7 @@ from database_controllers.store_controller import get_store_status
 from database_controllers.menu_controller import get_all_menu_hour , get_menu_hour_for_day
 from database_controllers.bq_controller import get_timezone
 from database_controllers.trigger_controller import trigger
+from database_controllers.report_controller import get_report_by_id
 # import utilities
 from utilities.time_converter import convert_time_to_utc
 from utilities.get_max_date_time import get_max_date_time
@@ -55,13 +56,16 @@ def timezones(store_id):
 @app.route('/trigger/<int:store_id>', methods=["GET"])
 def trigger_route(store_id):
     if request.method=='GET':
-        # res = trigger(store_id)
-        # return jsonify(res.res())
         return trigger(store_id)
     else:
         return 'Method Not Defined'
 
-# print(get_max_date_time())
+@app.route('/get_report/<string:report_id>' , methods=['GET'])
+def get_report(report_id):
+    if request.method=='GET':
+        return get_report_by_id(report_id)
+    else:
+        return 'Method Not Defined'
 
 if __name__ == '__main__':
     # Run the app in debug mode on http://127.0.0.1:5000/
