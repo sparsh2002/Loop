@@ -55,8 +55,9 @@ def timezones(store_id):
 @app.route('/trigger/<int:store_id>', methods=["GET"])
 def trigger_route(store_id):
     if request.method=='GET':
-        res = trigger(store_id)
-        return jsonify(res.res())
+        # res = trigger(store_id)
+        # return jsonify(res.res())
+        return trigger(store_id)
     else:
         return 'Method Not Defined'
 
