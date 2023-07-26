@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request , jsonify
 from database import decoder
 from database import conn
 from database import decoder
@@ -6,7 +6,7 @@ from database import decoder
 from database_controllers.store_controller import get_store_status 
 from database_controllers.menu_controller import get_all_menu_hour , get_menu_hour_for_day
 from database_controllers.bq_controller import get_timezone
-
+from database_controllers.trigger_controller import trigger
 # import utilities
 from utilities.time_converter import convert_time_to_utc
 
@@ -45,11 +45,20 @@ def menu_hours(store_id):
 @app.route('/database/timezones/<int:store_id>', methods=['GET'])
 def timezones(store_id):
     if request.method=='GET':
-        print('Hello')
         res = get_timezone(store_id)
         return res
     else:
         return 'Method not defined'
+    
+
+
+@app.route('/trigger/<int:store_id>', methods=["GET"])
+def trigger_route(store_id):
+    if request.method=='GET':
+        res = trigger(store_id)
+        return jsonify(res.res())
+    else:
+        return 'Method Not Defined'
 
 
 if __name__ == '__main__':

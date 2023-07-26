@@ -40,3 +40,24 @@ class Report:
         self.downtime_last_hour = downtime_last_hour
         self.downtime_last_day = downtime_last_day
         self.downtime_last_week = downtime_last_week
+    def __init__(self):
+        pass
+    def print(self):
+        print('Uptime Last Hour:' , self.uptime_last_hour)
+        print('Uptime Last day:' , self.uptime_last_day )
+        print('Uptime Last Week:', self.uptime_last_week)
+        print('Downtime Last Hour:' , self.downtime_last_hour)
+        print('Downtime Last day:' , self.downtime_last_day )
+        print('Downtime Last Week:', self.downtime_last_week)
+
+    def res(self):
+        dict = {}
+
+        dict['uptime_last_hour'] = self.uptime_last_hour
+        dict['uptime_last_day'] = self.uptime_last_day
+        dict['uptime_last_week'] = self.uptime_last_week
+        dict['downtime_last_day'] = self.downtime_last_day
+        dict['downtime_last_hour'] = self.downtime_last_hour
+        dict['downtime_last_week'] = self.downtime_last_week
+
+        return dict
