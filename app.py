@@ -7,6 +7,9 @@ from database_controllers.store_controller import get_store_status
 from database_controllers.menu_controller import get_all_menu_hour , get_menu_hour_for_day
 from database_controllers.bq_controller import get_timezone
 
+# import utilities
+from utilities.time_converter import convert_time_to_utc
+
 # Create a Flask app instance
 app = Flask(__name__)
 app.json_encoder = decoder.MongoJSONEncoder
@@ -47,6 +50,7 @@ def timezones(store_id):
         return res
     else:
         return 'Method not defined'
+
 
 if __name__ == '__main__':
     # Run the app in debug mode on http://127.0.0.1:5000/

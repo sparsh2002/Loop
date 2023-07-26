@@ -27,3 +27,16 @@ class Bq:
         data['store_id'] = self.store_id
         data['timezone_str'] = self.timezone_str
         return data
+    
+class Report:
+    def __init__(self , store_id, uptime_last_hour ,
+                  uptime_last_day,uptime_last_week , 
+                  downtime_last_hour,downtime_last_day,
+                  downtime_last_week):
+        self.store_id = store_id
+        self.uptime_last_hour = uptime_last_hour # minutes
+        self.uptime_last_day = uptime_last_day # hours
+        self.uptime_last_week = uptime_last_week # hours
+        self.downtime_last_hour = downtime_last_hour
+        self.downtime_last_day = downtime_last_day
+        self.downtime_last_week = downtime_last_week
