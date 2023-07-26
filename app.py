@@ -9,7 +9,7 @@ from database_controllers.bq_controller import get_timezone
 from database_controllers.trigger_controller import trigger
 # import utilities
 from utilities.time_converter import convert_time_to_utc
-
+from utilities.get_max_date_time import get_max_date_time
 # Create a Flask app instance
 app = Flask(__name__)
 app.json_encoder = decoder.MongoJSONEncoder
@@ -60,6 +60,7 @@ def trigger_route(store_id):
     else:
         return 'Method Not Defined'
 
+# print(get_max_date_time())
 
 if __name__ == '__main__':
     # Run the app in debug mode on http://127.0.0.1:5000/

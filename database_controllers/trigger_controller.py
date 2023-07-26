@@ -3,9 +3,18 @@ from database.conn import client
 from database_models.models import Report
 from utilities.time_converter import convert_time_to_utc
 
+# database controllers import
+from database_controllers.bq_controller import get_timezone
+
 db = client['loop']
+timezones = db['bq']
+menus_hours = db['menu-hours']
+store_status = db['store-status']
+
 
 def get_uptime_last_hour(store_id):
+    timezone = get_timezone(store_id)
+    
     return 'Done'
 
 def get_uptime_last_day(store_id):
